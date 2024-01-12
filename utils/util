@@ -1,0 +1,19 @@
+compare_quant = (a,b) =>{
+    return b.quantidade - a.quantidade;
+}
+
+add_prev_consum = (data) => {
+    data.forEach(element => {
+      element["previsao_consumo"]= element.quantidade * 5;
+    });
+    return data;
+}
+
+filt_port = (a) =>{
+    return a.pais == "PORT";
+}
+
+ 
+exports.prev_consum = add_prev_consum;
+exports.compare_quant = compare_quant;
+exports.filt_port = filt_port;
