@@ -25,8 +25,7 @@ app.post('/3a',(req,res)=>{
     if(req.body.length == undefined)
         res.status(400).json({error:'there is no content in url'})
     else{
-        req.body.sort( utils.compare_quant);
-        req.body = utils.prev_consum(req.body);
+        req.body.sort( utils.compare_quant).map(utils.prev_consum);
         res.status(200).json({message: req.body});
     }
 });
@@ -39,9 +38,7 @@ app.post('/3c',(req,res)=>{
     if(req.body.length == undefined)
         res.status(400).json({error:'there is no content in url'})
     else{
-        let aux =  req.body.filter( utils.filt_port);
-
-        aux = utils.prev_consum(aux);
+        let aux =  req.body.filter( utils.filt_port).map(utils.prev_consum);
         res.status(200).json({message: aux});
     }
 });

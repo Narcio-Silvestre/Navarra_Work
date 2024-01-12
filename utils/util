@@ -3,9 +3,7 @@ compare_quant = (a,b) =>{
 }
 
 add_prev_consum = (data) => {
-    data.forEach(element => {
-      element["previsao_consumo"]= element.quantidade * 5;
-    });
+    data["previsao_consumo"]= data.quantidade * 5;
     return data;
 }
 
