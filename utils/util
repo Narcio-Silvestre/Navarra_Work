@@ -1,12 +1,20 @@
+//Author: Nárcio Silvestre
+//Email: narciosilvestre16@gmail.com
+//Contact: +351920262110
+//Description: Test exercises from Company Navarra
+
+//compare to sort the elements on array
 compare_quant = (a,b) =>{
     return b.quantidade - a.quantidade;
 }
 
+//function to add 'previsao_consumo'
 add_prev_consum = (data) => {
     data["previsao_consumo"]= data.quantidade * 5;
     return data;
 }
 
+//function to filter all the objects with "PORT"
 filt_port = (a) =>{
     return a.pais == "PORT";
 }
