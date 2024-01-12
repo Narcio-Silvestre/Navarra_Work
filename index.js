@@ -3,7 +3,7 @@ const router = require('./routers/router');
 const utils = require('./utils/util');
 
 const app = express();
-let port = 8080;
+var port = 8080;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -32,15 +32,7 @@ app.post('/3a',(req,res)=>{
 });
 
 app.post("/3b",(req,res)=>{
-    if(req.body.length == undefined)
-        res.status(400).json({error:'there is no content in url'})
-    else{
-        req.body.sort( (a,b) =>
-        {
-            return b.quantidade - a.quantidade;
-        });
-        res.status(200).json({message: req.body});
-    }
+    
 });
 
 app.post('/3c',(req,res)=>{
