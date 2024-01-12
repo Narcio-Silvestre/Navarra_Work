@@ -38,7 +38,7 @@ app.post('/3a',(req,res)=>{
 
 //third-line 2 question
 app.post("/3b",(req,res)=>{
-    
+    //is missing the 2 question
 });
 
 //third-line 3 question
