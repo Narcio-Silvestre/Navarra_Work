@@ -15,11 +15,32 @@ add_prev_consum = (data) => {
 }
 
 //function to filter all the objects with "PORT"
-filt_port = (a) =>{
-    return a.pais == "PORT";
+filt_port = (a) =>{ 
+    return a.pais == "PORT"; 
+}
+
+//function to filter all the object with DIN,30,R60,90 and 120
+filt_cond_pay = (a) =>{ 
+    return (a.condicao_pagamento === "DIN") || (a.condicao_pagamento === "30")
+    || (a.condicao_pagamento === "R60") || (a.condicao_pagamento === "90") 
+    || (a.condicao_pagamento === "120") ; 
+}
+
+//function to convert priority in numbers
+priority = (a) => {
+    const priorities = { 'DIN': 1, '30': 2, 'R60': 3, '90': 4, '120': 5 };
+    return priorities[a.condicao_pagamento] || 6;
+}
+
+//function to compare priorities
+compare_priority = (a, b) =>{ 
+    return this.priority(a) - this.priority(b)
 }
 
  
 exports.prev_consum = add_prev_consum;
 exports.compare_quant = compare_quant;
+exports.priority = priority;
 exports.filt_port = filt_port;
+exports.filt_cond_pay = filt_cond_pay;
+exports.compare_priority = compare_priority;

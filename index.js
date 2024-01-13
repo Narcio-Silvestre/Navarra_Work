@@ -1,4 +1,7 @@
-
+//Author: Nárcio Silvestre
+//Email: narciosilvestre16@gmail.com
+//Contact: +351920262110
+//Description: Test exercises from Company Navarra
 
 
 const express = require('express');
@@ -38,7 +41,12 @@ app.post('/3a',(req,res)=>{
 
 //third-line 2 question
 app.post("/3b",(req,res)=>{
-    //is missing the 2 question
+    if(req.body.length == undefined)
+        res.status(400).json({error:'there is no content in url'})
+    else{
+        let new_array = req.body.sort(utils.compare_priority).filter(filt_cond_pay);
+        res.status(200).json({message: new_array});
+    }  
 });
 
 //third-line 3 question
@@ -46,8 +54,8 @@ app.post('/3c',(req,res)=>{
     if(req.body.length == undefined)
         res.status(400).json({error:'there is no content in url'})
     else{
-        let aux =  req.body.filter( utils.filt_port).map(utils.prev_consum);
-        res.status(200).json({message: aux});
+        let new_array =  req.body.filter( utils.filt_port).map(utils.prev_consum);
+        res.status(200).json({message: new_array});
     }
 });
 
